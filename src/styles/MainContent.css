@@ -1,0 +1,80 @@
+/* .cards-list {
+  padding-bottom: 10rem;
+}
+
+.list__message {
+  display: none;
+  padding: 10rem 4rem 2rem;
+  text-align: center;
+}
+
+.list__message_show {
+  display: block;
+} */
+
+/* .list__items {
+  display: grid;
+  padding: 2rem 1rem;
+  grid-template-columns: 1fr;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  margin: 0 auto;
+  width: 100%;
+} */
+main {
+  padding: 2rem;
+  background: rgb(104, 104, 104);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0.75rem;
+    grid-row-gap: 0.75rem;
+  }
+}
+
+@media (min-width: 60rem) {
+  .list {
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 0.75rem;
+    grid-row-gap: 0.75rem;
+  }
+}
+
+@media (min-width: 150rem) {
+  .list {
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: 0.75rem;
+    grid-row-gap: 0.75rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  main {
+    background-color: lightgrey;
+  }
+}
+
+/* .list__remaining {
+  opacity: 0.5;
+}
+
+.list__button:not(:disabled) hover {
+  background-color: rgba(var(--color-blue), 0.8);
+  color: rgba(var(--color-force-light), 1);
+}
+
+.list__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+} */
