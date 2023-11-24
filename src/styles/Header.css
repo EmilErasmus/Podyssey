@@ -1,0 +1,46 @@
+/* .hero {
+  display: flex;
+  align-items: center;
+  background-color: #21222A;
+  height: 90px;
+  padding: 20px 25px;
+} */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  background-color: #21222A;
+  height: 90px;
+  padding: 20px 25px;
+}
+
+@media (min-width: 600px) {
+  .hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #21222A;
+    height: 90px;
+    padding: 20px 25px;
+  }
+}
+
+
+.hero--photo {
+  width: 55px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.hero--header {
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: #fff
+}
+
+.hero--text {
+  margin-top: 0;
+  color: #fff
+}
