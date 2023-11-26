@@ -2,7 +2,7 @@
 import "../styles/Preview.css";
 
 export default function Preview(props) {
-  console.log(props.updated)
+  // console.log(props.updated)
   const humanReadableDate = new Date(props.updated).toLocaleDateString();
   return (
     <div className="list__button">

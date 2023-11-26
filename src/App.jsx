@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState, useEffect } from "react";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import "./App.css";
@@ -6,12 +6,55 @@ import MainContent from "./components/MainContent.jsx";
 import Header from "./components/Header.jsx";
 
 export default function App() {
-  // const [count, setCount] = useState(0)
+  const [previewData, setPreviewData] = useState([]);
+  const [queryText, setQueryText] = useState("");
+  /* 
+  previewState represents what will be displayed on the page at any given time.
+  Its determined by either previewData or queryText and is passed down into
+  MainContent for display */
+  const [previewState, setPreviewState] = useState(previewData);
+
+  // Pull in data for the preview
+  useEffect(() => {
+    console.log("useEffect ran");
+    fetch("https://podcast-api.netlify.app/shows")
+      .then((res) => res.json())
+      .then((data) => setPreviewData(data))
+      .catch((err) => document.write(err + " data"));
+  }, []);
+
+  useEffect(() => {
+    // Set previewState to previewData when it changes
+    setPreviewState(previewData);
+  }, [previewData]);
+
+  let matchingTitleShows;
+
+  const handleInput = (event) => {
+    const input = event.target.value;
+    setQueryText(input);
+  };
+
+  const handleSearch = () => {
+    if (queryText) {
+      matchingTitleShows = [...previewData].filter((book) =>
+        book.title.toLowerCase().includes(queryText)
+      );
+      console.log(matchingTitleShows);
+      setPreviewState(matchingTitleShows);
+    } else {
+      setPreviewState(previewData);
+    }
+  };
 
   return (
     <>
-      <Header />
-      <MainContent />
+      <Header handleInput={handleInput} handleSearch={handleSearch} />
+      <MainContent
+        previewState={previewState}
+        setPreviewState={setPreviewState}
+        previewData={previewData}
+      />
     </>
   );
 }
