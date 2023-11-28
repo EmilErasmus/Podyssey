@@ -4,6 +4,7 @@ import Preview from "./Preview.jsx";
 import Filters from "./Filters.jsx";
 import "../styles/MainContent.css";
 
+
 export default function MainContent(props) {
   const cards = props.previewState.map((item) => {
     return <Preview key={item.id} {...item} />;
@@ -41,7 +42,9 @@ export default function MainContent(props) {
     <main>
       {console.log("MainContent renders")}
       <Filters handleFilter={handleFilter} />
-      <section className="list">{cards}</section>
+      <section className="list">
+        {cards}
+      </section>
     </main>
   );
 }

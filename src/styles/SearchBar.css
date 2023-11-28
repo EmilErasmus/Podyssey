@@ -1,8 +1,9 @@
 .search {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .search__input {

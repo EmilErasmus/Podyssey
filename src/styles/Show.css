@@ -1,0 +1,96 @@
+.show {
+  max-width: 90%;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #121212;
+}
+
+.sidebar h3 {
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+.sidebar ul li.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #121212;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header img {
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+.header .info h1 {
+  margin: 0;
+}
+
+.header .info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.episodes .episode {
+  margin-bottom: 15px;
+}
+
+.episodes .episode h3 {
+  margin: 5px 0;
+}
+
+.episodes .episode p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.episodes .episode audio {
+  width: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  .content {
+    background-color: #ffff;
+  }
+  .sidebar {
+    background-color: #ffff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
