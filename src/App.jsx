@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import "./App.css";
-import MainContent from "./components/MainContent.jsx";
 import Header from "./components/Header.jsx";
+import MainContent from "./components/MainContent.jsx";
+import Show from "./components/Show.jsx";
+import Landing from "./components/Landing.jsx";
 
 export default function App() {
   const [previewData, setPreviewData] = useState([]);
@@ -50,11 +53,20 @@ export default function App() {
   return (
     <>
       <Header handleInput={handleInput} handleSearch={handleSearch} />
-      <MainContent
-        previewState={previewState}
-        setPreviewState={setPreviewState}
-        previewData={previewData}
-      />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route
+          path="/shows"
+          element={
+            <MainContent
+              previewState={previewState}
+              setPreviewState={setPreviewState}
+              previewData={previewData}
+            />
+          }
+        />
+        <Route path="/shows/:id" element={<Show />} />
+      </Routes>
     </>
   );
 }
