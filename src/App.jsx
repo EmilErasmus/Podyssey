@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import "./App.css";
+import Fuse from "fuse.js";
 import Header from "./components/Header.jsx";
 import MainContent from "./components/MainContent.jsx";
 import Show from "./components/Show.jsx";
@@ -40,10 +41,17 @@ export default function App() {
 
   const handleSearch = () => {
     if (queryText) {
-      matchingTitleShows = [...previewData].filter((book) =>
-        book.title.toLowerCase().includes(queryText)
-      );
-      console.log(matchingTitleShows);
+      // Use Fuse.js for fuzzy searching
+      const options = {
+        keys: ["title"], // Specify the fields you want to search
+        includeScore: true,
+      };
+      const fuse = new Fuse(previewData, options);
+      const fuzzyResults = fuse.search(queryText);
+      
+      // Extract only the items from the results (without the score)
+      matchingTitleShows = fuzzyResults.map((result) => result.item);
+
       setPreviewState(matchingTitleShows);
     } else {
       setPreviewState(previewData);
