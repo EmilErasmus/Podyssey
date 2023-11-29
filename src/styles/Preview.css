@@ -40,6 +40,12 @@
   text-overflow: ellipsis;
 }
 
+.preview__genres {
+  max-width: 195px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .preview_hidden {
   display: none;
