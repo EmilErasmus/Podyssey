@@ -2,6 +2,7 @@
 // import Fuse from "fuse.js";
 import Preview from "./Preview.jsx";
 import Filters from "./Filters.jsx";
+import Carousel from "./Carousel.jsx";
 import "../styles/MainContent.css";
 
 
@@ -37,10 +38,10 @@ export default function MainContent(props) {
 
     props.setPreviewState(sortedData);
   };
-
   return (
     <main>
       {console.log("MainContent renders")}
+      <Carousel cards={cards}/>
       <Filters handleFilter={handleFilter} />
       <section className="list">
         {cards}

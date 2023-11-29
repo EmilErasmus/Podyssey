@@ -15,9 +15,9 @@ export default function Preview(props) {
     "News",
     "Kids and Family",
   ];
-  const vals = (props.genres).map((item) => genres[item])
+  const vals = props.genres.map((item) => genres[item]);
   // console.log((props.genres).forEach((currentValue, index) => genres[index]))
-  
+
   // props.genres.forEach(index => {
   //   // Check if the index is within the bounds of the genres array
   //   if (index >= 0 && index < genres.length) {
@@ -39,11 +39,11 @@ export default function Preview(props) {
 
             <div className="preview__info">
               <h3 className="preview__title">{props.title}</h3>
-              <div className="preview__author">Seasons: {props.seasons}</div>
-              <div className="preview__genres">Genres: {vals.join(", ")}</div>
               <p className="preview_hidden" id="description">
                 {props.description}
               </p>
+              <div className="preview__author">Seasons: {props.seasons}</div>
+              <div className="preview__genres">Genres: {vals.join(", ")}</div>
               <p className="preview_date" id="date">
                 Last updated: {formatDate(props.updated)}
               </p>
