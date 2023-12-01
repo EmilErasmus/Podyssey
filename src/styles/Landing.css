@@ -4,24 +4,25 @@
   align-items: center;
 }
 
-footer {
-  padding-top: 2em;
-  background-color: #4f4f4f;
-  text-align: center;
-}
 form {
   text-align: center;
-  width: 50%;
+  width: 85%;
   padding: 2% 0%;
   background-color: white;
   border-radius: 10px;
 }
+
+.form__header {
+  color: #213547;
+  margin-bottom: 2rem;
+}
+
 .form__input,
 .form__button {
   color: black;
   background-color: #e4e4e4;
   padding: 0.8em 0.8em;
-  width: 60%;
+  width: 50%;
   height: auto;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -36,4 +37,14 @@ form {
 }
 ::placeholder {
   color: black;
+}
+
+@media (min-width: 35rem) {
+  form {
+    width: 25rem;
+  }
+  .form__input,
+  .form__button {
+    width: 15rem;
+  }
 }
