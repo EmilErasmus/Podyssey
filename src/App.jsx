@@ -8,6 +8,10 @@ import Header from "./components/Header.jsx";
 import MainContent from "./components/MainContent.jsx";
 import Show from "./components/Show.jsx";
 import Landing from "./components/Landing.jsx";
+import Favourites from "./components/Favourites.jsx";
+import Sidebar from "./components/SideBar.jsx";
+// import '../styles/App.css';
+
 
 export default function App() {
   const [previewData, setPreviewData] = useState([]);
@@ -17,6 +21,7 @@ export default function App() {
   Its determined by either previewData or queryText and is passed down into
   MainContent for display */
   const [previewState, setPreviewState] = useState(previewData);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Pull in data for the preview
   useEffect(() => {
@@ -58,9 +63,14 @@ export default function App() {
     }
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
       <Header handleInput={handleInput} handleSearch={handleSearch} />
+      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route
@@ -74,6 +84,7 @@ export default function App() {
           }
         />
         <Route path="/shows/:id" element={<Show />} />
+        <Route path="/favourites" element={<Favourites />} />
       </Routes>
     </>
   );

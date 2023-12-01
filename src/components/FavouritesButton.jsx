@@ -1,25 +1,33 @@
+
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import "../styles/FavouritesButton.css";
 
-export default function FavouritesButton() {
+export default function FavouritesButton(props) {
   const [isChecked, setIsChecked] = useState(false);
+
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+    props.addToFavorites();
+    console.log(props.id)
   };
 
-
   return (
-    <button className="fave">
+    <button
+      className={`fave ${isChecked ? "checked" : ""}`}
+      // onClick={handleCheckboxChange}
+    >
       <input
         value="favorite-button"
         name="favorite-checkbox"
-        id="favorite"
+        id={props.id}
         type="checkbox"
+        className="favorite"
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
-      <label className="fave__container" htmlFor="favorite">
+      <label className="fave__container" htmlFor={props.id}>
         <svg
           className="feather feather-heart"
           strokeLinejoin="round"
