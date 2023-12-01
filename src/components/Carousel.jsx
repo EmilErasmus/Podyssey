@@ -25,8 +25,8 @@ export default function Carousel(props) {
     <Swiper
       pagination={{ clickable: true }}
       navigation
-      // autoplay={{ delay: 4000 }}
-      // speed={2000} 
+      autoplay={{ delay: 4000 }}
+      speed={2000} 
       className="mySwiper"
       loop={true}
       spaceBetween={10}
