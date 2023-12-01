@@ -1,3 +1,39 @@
 .landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  padding-top: 2em;
+  background-color: #4f4f4f;
   text-align: center;
+}
+form {
+  text-align: center;
+  width: 50%;
+  padding: 2% 0%;
+  background-color: white;
+  border-radius: 10px;
+}
+.form__input,
+.form__button {
+  color: black;
+  background-color: #e4e4e4;
+  padding: 0.8em 0.8em;
+  width: 60%;
+  height: auto;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: solid 1px #999;
+  border-radius: 10px;
+}
+.form__button {
+  width: 30%;
+  color: white;
+  background-color: #4f4f4f;
+}
+::placeholder {
+  color: black;
 }
