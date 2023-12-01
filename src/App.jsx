@@ -22,10 +22,12 @@ export default function App() {
   MainContent for display */
   const [previewState, setPreviewState] = useState(previewData);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Pull in data for the preview
   useEffect(() => {
     console.log("useEffect ran");
+    setLoading(true);
     fetch("https://podcast-api.netlify.app/shows")
       .then((res) => res.json())
       .then((data) => setPreviewData(data))
@@ -80,6 +82,8 @@ export default function App() {
               previewState={previewState}
               setPreviewState={setPreviewState}
               previewData={previewData}
+              loading={loading}
+              setLoading={setLoading}
             />
           }
         />

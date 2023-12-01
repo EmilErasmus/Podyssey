@@ -66,16 +66,24 @@ export default function MainContent(props) {
     props.setPreviewState(matchingGenreShows);
   };
 
+  setTimeout(() => {
+    props.setLoading(false);
+  }, 1500)
+
   return (
-    <main>
-      {console.log("MainContent renders")}
-      <Carousel cards={cards} />
-      <Filters
-        handleFilter={handleFilter}
-        handleGenreUpdate={handleGenreUpdate}
-        genres={genres}
-      />
-      <section className="list">{cards}</section>
-    </main>
+    <>
+      {props.loading ? <h2>Loading...</h2> : (
+        <main>
+          {console.log("MainContent renders")}
+          <Carousel cards={cards} />
+          <Filters
+            handleFilter={handleFilter}
+            handleGenreUpdate={handleGenreUpdate}
+            genres={genres}
+          />
+          <section className="list">{cards}</section>
+        </main>
+      )}
+    </>
   );
 }
