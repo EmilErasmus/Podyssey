@@ -15,17 +15,8 @@ export default function Preview(props) {
     "News",
     "Kids and Family",
   ];
-  const vals = props.genres.map((item) => genres[item]);
-  // console.log((props.genres).forEach((currentValue, index) => genres[index]))
-
-  // props.genres.forEach(index => {
-  //   // Check if the index is within the bounds of the genres array
-  //   if (index >= 0 && index < genres.length) {
-  //     return genres[index];
-  //   } else {
-  //     console.log(`Index ${index} is out of bounds for the genres array.`);
-  //   }
-  // });
+  const vals = props.genres.map((item) => genres[item - 1]);
+  console.log(vals)
   return (
     <Link to={`/shows/${props.id}`}>
       <div className="list__button">

@@ -1,6 +1,8 @@
 
 
 .swiper {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 20rem;
   margin-bottom: 5rem;
@@ -89,6 +91,7 @@
 @media (min-width: 50rem) {
   .carousel .preview {
     padding: 0 4rem;
+    max-width: 100%;
   }
   .carousel .preview__image {
     width: 14rem;

@@ -7,6 +7,9 @@
 } */
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   background-color: #21222A;
@@ -18,14 +21,19 @@ header {
   display: flex;
 }
 
-.hero--photo {
+.hero__link {
+  align-items: center;
+}
+
+.hero__photo {
   width: 60px;
   height: 60px;
   align-self: center;
-  margin-right: 5px;
+  margin-right: 0.8rem;
+  margin-top: 0.7rem;
 }
 
-.hero--header {
+.hero__header {
   font-weight: 650;
   font-size: 2.1em;
   margin-bottom: 1.6rem;
@@ -44,8 +52,8 @@ header {
   .hero {
     margin-right: auto;
   }
-  .hero--photo {
-    margin-right: 10px;
+  .hero__photo {
+    margin-right: 1rem;
   }
 }
 

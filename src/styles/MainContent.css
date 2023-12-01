@@ -46,7 +46,7 @@ main {
   }
 }
 
-@media (min-width: 60rem) {
+@media (min-width: 70rem) {
   .list {
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 0.75rem;

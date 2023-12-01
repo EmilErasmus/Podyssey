@@ -1,8 +1,9 @@
 /* preview */
 
 .preview {
+  max-width: 9rem;
   border-width: 0;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,14 +12,8 @@
   background: #213547;
 }
 
-@media (min-width: 60rem) {
-  .preview {
-    padding: 1rem;
-  }
-}
-
 .preview__image {
-  width: 90%;
+  width: 95%;
   height: auto;
   object-fit: cover;
   background: grey;
@@ -64,6 +59,20 @@
 
 .preview__author {
   color: rgba(var(--color-dark), 0.4);
+}
+
+@media (min-width: 30rem) {
+  .preview {
+    max-width: 10rem;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 45rem) {
+  .preview {
+    max-width: 15rem;
+    padding: 1rem;
+  }
 }
 
 @media (prefers-color-scheme: light) {

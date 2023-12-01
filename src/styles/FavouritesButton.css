@@ -1,4 +1,4 @@
-
+/* 
 .fave {
   padding: 0;
   margin-top: 20px;
@@ -25,11 +25,113 @@
   display: none;
 }
 
-#favorite:checked + .fave__container svg {
+
+.fave.checked svg {
   fill: hsl(0deg 100% 50%);
   stroke: hsl(0deg 100% 50%);
   animation: heartButton 1s;
 }
+
+
+#favorite + .fave__container .fave__action {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+}
+
+#favorite +   .fave__container .fave__action span {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  transition: all 0.5s;
+}
+
+#favorite + .fave__container .fave__action span.fave__option-1 {
+  transform: translate(0px, 0%);
+  opacity: 1;
+}
+
+.fave.checked + .fave__container .fave__action span.fave__option-1 {
+  transform: translate(0px, -100%);
+  opacity: 0;
+}
+
+#favorite + .fave__container .fave__action span.fave__option-2 {
+  transform: translate(0px, 100%);
+  opacity: 0;
+}
+
+.fave.checked + .fave__container .fave__action span.fave__option-2 {
+  transform: translate(0px, 0%);
+  opacity: 1;
+} */
+
+/* Update CSS */
+
+.fave {
+  padding: 0;
+  margin-top: 20px;
+}
+
+.fave__container {
+  background-color: rgb(36, 36, 36);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px 5px 5px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+  box-shadow: rgba(46, 46, 46, 0.2) 0px 8px 24px;
+  color: rgb(255, 255, 255);
+}
+
+.favorite {
+  display: none;
+}
+
+.fave.checked svg {
+  fill: hsl(0deg 100% 50%);
+  stroke: hsl(0deg 100% 50%);
+  animation: heartButton 1s;
+}
+
+.favorite + .fave__container .fave__action {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+}
+
+.favorite + .fave__container .fave__action span {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  transition: all 0.5s;
+}
+
+.favorite + .fave__container .fave__action span.fave__option-1 {
+  transform: translate(0px, 0%);
+  opacity: 1;
+}
+
+.fave.checked + .fave__container .fave__action span.fave__option-1 {
+  transform: translate(0px, -100%);
+  opacity: 0;
+}
+
+.favorite + .fave__container .fave__action span.fave__option-2 {
+  transform: translate(0px, 100%);
+  opacity: 0;
+}
+
+.fave.checked + .fave__container .fave__action span.fave__option-2 {
+  transform: translate(0px, 0%);
+  opacity: 1;
+} 
+
+
 
 @keyframes heartButton {
   0% {
@@ -51,38 +153,4 @@
   100% {
     transform: scale(1);
   }
-}
-
-#favorite + .fave__container .fave__action {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-}
-
-#favorite +   .fave__container .fave__action span {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  transition: all 0.5s;
-}
-
-#favorite + .fave__container .fave__action span.fave__option-1 {
-  transform: translate(0px, 0%);
-  opacity: 1;
-}
-
-#favorite:checked + .fave__container .fave__action span.fave__option-1 {
-  transform: translate(0px, -100%);
-  opacity: 0;
-}
-
-#favorite + .fave__container .fave__action span.fave__option-2 {
-  transform: translate(0px, 100%);
-  opacity: 0;
-}
-
-#favorite:checked + .fave__container .fave__action span.fave__option-2 {
-  transform: translate(0px, 0%);
-  opacity: 1;
 }
