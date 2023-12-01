@@ -8,7 +8,7 @@ export default function Header(props) {
     <header>
       <div className="hero">
         <Link className="hero__link" to="/shows">
-          <img src="../src/images/spartan.png" className="hero__photo" />
+          <img src="../public/spartan.png" className="hero__photo" />
         </Link>
         <h1 className="hero__header">Podyssey</h1>
       </div>
