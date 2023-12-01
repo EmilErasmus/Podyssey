@@ -1,12 +1,23 @@
-# React + Vite
+# Podyssey
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Author:
+Emil Erasmus
 
-Currently, two official plugins are available:
+### Description:
+Embark on a journey with Podyssey, your go-to podcast app! Dive into a world of captivating stories, insightful conversations, and endless entertainment. Discover new favorites, create personalized playlists, and stay connected with the latest episodes. Podyssey - where every listen leads to a new adventure in the podcast universe!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Netlify Link:
+[https://emilslibrary.netlify.app](https://podyssey.netlify.app/)
 
+### Software apps used: 
+- Visual Studio Code 
+- Google Chrome
+
+### Languages and Libraries:
+- HTML
+- CSS
+- JavaScript
+- React
 
 ## Credits
 <a href="https://www.flaticon.com/free-icons/shapes-and-symbols" title="shapes and symbols icons">Shapes and symbols icons created by Laisa Islam Ani - Flaticon</a>
