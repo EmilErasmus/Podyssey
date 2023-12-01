@@ -11,12 +11,12 @@ export default function Show() {
   const { id } = useParams();
   const [showDeets, setShowDeets] = useState([]);
   const [selectedSeason, setSelectedSeason] = useState(null);
+  const [audioPlaying, setAudioPlaying] = useState(false);
 
   useEffect(() => {
     fetch(`https://podcast-api.netlify.app/id/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setShowDeets(data);
         // Set the initial selected season to the first one
         setSelectedSeason(data.seasons[0]);
@@ -24,40 +24,73 @@ export default function Show() {
       .catch((err) => console.error(err));
   }, [id]);
 
+  useEffect(() => {
+    const handleAudioPlaying = () => {
+      setAudioPlaying(true);
+    };
+
+    const handleAudioPaused = () => {
+      setAudioPlaying(false);
+    };
+
+    window.addEventListener("play", handleAudioPlaying);
+    window.addEventListener("pause", handleAudioPaused);
+
+    return () => {
+      window.removeEventListener("play", handleAudioPlaying);
+      window.removeEventListener("pause", handleAudioPaused);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      if (audioPlaying) {
+        const message = "You have audio playing. Are you sure you want to leave?";
+        event.returnValue = message;
+        return message;
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [audioPlaying]);
+
   const handleSeasonClick = (season) => {
     // Toggle between seasons when clicked
     setSelectedSeason(season === selectedSeason ? null : season);
   };
 
-  const handleAddToFavorites = () => {
-    // console.log(selectedSeason)
-    // console.log('faves button working')
-    // Implement the logic to add the episode to the Favorites list in local storage
-    // Use showDeets and selectedSeason to get information about the current episode
-    // You may want to store Favorites as an array of objects in local storage
+  const handleAddToFavorites = (episode) => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    console.log(showDeets)
     const episodeToAdd = {
-      // Add necessary information about the episode
-      // You can customize this based on your requirements
-      title: selectedSeason.title,
-      episodeTitle: selectedSeason.episodes[0].title,
+      showTitle: showDeets.title,
+      seasonUpdated: showDeets.updated,
+      seasonTitle: selectedSeason.title,
+      episodeTitle: episode.title,
+      addedDate: new Date().toLocaleString(),
       // Add other relevant details
     };
-
-    // Check if the episode is not already in favorites
+    console.log(episodeToAdd.addedDate)
     const isAlreadyInFavorites = favorites.some(
       (fav) =>
-        fav.title === episodeToAdd.title &&
+        fav.showTitle === episodeToAdd.showTitle &&
+        fav.seasonUpdated === episodeToAdd.seasonUpdated &&
+        fav.seasonTitle === episodeToAdd.seasonTitle &&
         fav.episodeTitle === episodeToAdd.episodeTitle
     );
-
+  
     if (!isAlreadyInFavorites) {
-      // Add the episode to the favorites list
       favorites.push(episodeToAdd);
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   };
 
+
+  
   return (
     <div className="show">
       {showDeets.image ? (
@@ -98,7 +131,7 @@ export default function Show() {
                           <FavouritesButton
                             key={uuid()}
                             id={uuid()}
-                            addToFavorites={handleAddToFavorites}
+                            addToFavorites={() => handleAddToFavorites(episode)}
                           />
                         </h3>
                         <p>{episode.description}</p>
