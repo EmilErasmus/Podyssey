@@ -1,0 +1,20 @@
+
+.favourites {
+  margin-left: 3rem;
+}
+
+
+.favourites__list {
+  padding: 0.5rem 0.2rem;
+  font-weight: 500;
+}
+
+.favourites__btn {
+  padding: 0.1rem 0.2rem;
+  margin-left: 0.5rem;
+  border: 1px solid transparent;
+}
+
+.favourites__btn:hover {
+  border-color: rgb(218, 0, 0);
+}
