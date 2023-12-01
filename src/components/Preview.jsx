@@ -16,7 +16,6 @@ export default function Preview(props) {
     "Kids and Family",
   ];
   const vals = props.genres.map((item) => genres[item - 1]);
-  console.log(vals)
   return (
     <Link to={`/shows/${props.id}`}>
       <div className="list__button">
