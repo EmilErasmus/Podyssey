@@ -5,11 +5,22 @@ import Filters from "./Filters.jsx";
 import Carousel from "./Carousel.jsx";
 import "../styles/MainContent.css";
 
-
 export default function MainContent(props) {
   const cards = props.previewState.map((item) => {
     return <Preview key={item.id} {...item} />;
   });
+
+  const genres = [
+    "Personal Growth",
+    "True Crime and Investigative Journalism",
+    "History",
+    "Comedy",
+    "Entertainment",
+    "Business",
+    "Fiction",
+    "News",
+    "Kids and Family",
+  ];
 
   const handleFilter = (event) => {
     const value = event.target.innerText;
@@ -38,14 +49,33 @@ export default function MainContent(props) {
 
     props.setPreviewState(sortedData);
   };
+  let matchingGenreShows;
+
+  const handleGenreUpdate = (genre) => {
+    /*
+  Check if the "previewState" array holds any of the given inputs and if so, save
+  those genre to thier respective variables. */
+    if (genre && genre !== "All") {
+      matchingGenreShows = [...props.previewData].filter((show) =>
+        show.genres.includes(genres.indexOf(genre) + 1)
+      );
+    } else {
+      matchingGenreShows = [...props.previewData];
+    }
+    console.log(matchingGenreShows);
+    props.setPreviewState(matchingGenreShows);
+  };
+
   return (
     <main>
       {console.log("MainContent renders")}
-      <Carousel cards={cards}/>
-      <Filters handleFilter={handleFilter} />
-      <section className="list">
-        {cards}
-      </section>
+      <Carousel cards={cards} />
+      <Filters
+        handleFilter={handleFilter}
+        handleGenreUpdate={handleGenreUpdate}
+        genres={genres}
+      />
+      <section className="list">{cards}</section>
     </main>
   );
 }
