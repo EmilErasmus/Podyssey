@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
-import '../styles/Sidebar.css';
+import '../styles/SideBar.css';
 
 export default function Sidebar({ isOpen, onClose }) {
   return (
