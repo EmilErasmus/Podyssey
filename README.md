@@ -4,7 +4,7 @@
 Emil Erasmus
 
 ### Description:
-Embark on a journey with Podyssey, your go-to podcast app! Dive into a world of captivating stories, insightful conversations, and endless entertainment. Discover new favorites, create personalized playlists, and stay connected with the latest episodes. Podyssey - where every listen leads to a new adventure in the podcast universe!
+Embark on a journey with Podyssey, your go-to podcast app! Dive into a world of captivating stories, insightful conversations, and endless entertainment. Discover new favorites, create personalized playlists, and stay connected with the latest episodes.
 
 ### Netlify Link:
 [https://emilslibrary.netlify.app](https://podyssey.netlify.app/)
