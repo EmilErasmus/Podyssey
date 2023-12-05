@@ -4,7 +4,9 @@
 Emil Erasmus
 
 ### Description:
-Embark on a journey with Podyssey, your go-to podcast app! Dive into a world of captivating stories, insightful conversations, and endless entertainment. Discover new favorites, create personalized playlists, and stay connected with the latest episodes.
+A podcast app that where users browse through the catologue of shows, listen to specific episodes, and search and filter for exactly what they want.
+- Provides the option to save episodes to a favourites folder to be accessed later.
+- Contains both a light and dark mode that displays based on user system preferences.
 
 ### Netlify Link:
 https://podyssey.netlify.app
